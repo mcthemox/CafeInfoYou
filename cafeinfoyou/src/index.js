@@ -4,7 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+//map
+
+<script
+  type="text/javascript"
+  src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=60f9tklrr7"
+></script>;
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
     <App />
