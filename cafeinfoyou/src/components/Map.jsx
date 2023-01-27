@@ -1,6 +1,6 @@
 import React from 'react'
 import { useEffect, useRef } from 'react';
-import './map.css';
+import '../styles/map.css';
 
 
 export default function Map() {
