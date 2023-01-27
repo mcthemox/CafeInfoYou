@@ -1,10 +1,12 @@
-import './App.css';
-import Map from './components/Map';
-
-
 import React from 'react';
+import Map from './components/Map';
+import Sidebar from './components/Sidebar';
 
 export default function App() {
-  return <div>App</div>;
-
+  return (
+    <div>
+      <Sidebar />
+      <Map />
+    </div>
+  );
 }

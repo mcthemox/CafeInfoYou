@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useRef } from 'react';
+import './map.css';
 
 
 export default function Map() {
@@ -15,8 +16,8 @@ export default function Map() {
     const mapOptions: naver.maps.MapOptions = {
       center: location, //지도의 조기 중심
       zoom: 13, // 지도의 초기 줌 상태
-      zoomControl: true, // 줌 컨트롤의 표시 여부
-      zoomControlOptions: { 
+      zoomControl: false, // 줌 컨트롤의 표시 여부
+      zoomControlOptions: {
         position: naver.maps.Position.TOP_RIGHT,
       },
     };
@@ -29,31 +30,31 @@ export default function Map() {
     });
 
     var markerList = [];
-    naver.maps.Event.addListener(map, 'click', function(e) {
+    naver.maps.Event.addListener(map, 'click', function (e) {
       var marker = new naver.maps.Marker({
-          position: e.coord,
-          map: map
+        position: e.coord,
+        map: map
       });
 
       markerList.push(marker);
-  });
+    });
 
 
-//   $("#tile-transition").on("click", function(e) {
-//     e.preventDefault();
+    //   $("#tile-transition").on("click", function(e) {
+    //     e.preventDefault();
 
-//     if (map.getOptions("tileTransition")) {
-//         map.setOptions("tileTransition", false); //타일 fadeIn 효과 끄기
+    //     if (map.getOptions("tileTransition")) {
+    //         map.setOptions("tileTransition", false); //타일 fadeIn 효과 끄기
 
-//         $(this).removeClass("control-on");
-//     } else {
-//         map.setOptions("tileTransition", true); //타일 fadeIn 효과 켜기
-//         $(this).addClass("control-on");
-//     }
-// });   
+    //         $(this).removeClass("control-on");
+    //     } else {
+    //         map.setOptions("tileTransition", true); //타일 fadeIn 효과 켜기
+    //         $(this).addClass("control-on");
+    //     }
+    // });   
 
     
   }, []);
-  return (<div  ref= {mapElement} style={{ minHeight: '1000px' }} />
+  return (<div className='map' ref= {mapElement}/>
   );
 }
