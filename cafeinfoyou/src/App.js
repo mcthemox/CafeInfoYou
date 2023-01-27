@@ -1,4 +1,5 @@
 import React from 'react';
+import KakaoMap from './components/KakakoMap';
 import Map from './components/Map';
 import Sidebar from './components/Sidebar';
 
@@ -6,7 +7,7 @@ export default function App() {
   return (
     <div>
       <Sidebar />
-      <Map />
+      <KakaoMap />
     </div>
   );
 }
