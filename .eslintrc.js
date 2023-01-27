@@ -4,11 +4,20 @@ module.exports = {
     'linebreak-style': 0,
     'no-console': 'off',
   },
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+};
+module.exports = {
+  extends: [
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  overrides: [
+    {
+      files: ['*.js', '*.jsx'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 'off',
+      },
     },
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-  },
+  ],
 };
