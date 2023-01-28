@@ -26,7 +26,7 @@ export default function Sidebar() {
                 <Search/>
                 <SidebarContents />
             </div>
-                <img src='/images/button4.png' ref={mainhidebutton} className='close-sidebar-button' onClick={hidebutton} alt='button' ></img>
+                <img src='/images/button1.png' ref={mainhidebutton} className='close-sidebar-button' onClick={hidebutton} alt='button' ></img>
                 <img src='/images/button2.png' className='open-sidebar-button' onClick={openbutton} alt='button' ></img>
         </div>
 )}
