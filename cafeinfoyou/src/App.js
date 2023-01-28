@@ -1,5 +1,5 @@
 import React from 'react';
-import KakaoMap from './components/KakakoMap';
+import KakaoMap from './components/KakaoMap';
 import Map from './components/Map';
 import Sidebar from './components/Sidebar';
 
