@@ -9,7 +9,7 @@ export default function KakaoMap() {
 
   useEffect(()=>{
     const container = document.getElementById('map');
-        const options = { center: new kakao.maps.LatLng(33.450701, 126.570667) };
+        const options = { center: new kakao.maps.LatLng(37.5656, 126.9769) };
         const kakaoMap = new kakao.maps.Map(container, options);
         setMap(kakaoMap);
   },[])
