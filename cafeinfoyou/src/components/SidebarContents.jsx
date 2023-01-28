@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import '../styles/sidebar.css';
 
 export default function SidebarContents() {
   return (
-    <div>SidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContentsSidebarContents</div>
+    <div className='contents'>
+      컨텐츠
+    </div>
   )
 }
