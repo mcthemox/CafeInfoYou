@@ -24,7 +24,7 @@ app.use('/blogSearch', (req, res) => {
 });
 
 app.get('/searchPlace', (req, res) => {
-  const place = '홍대 떡볶이';
+  const place = '서울 디저트 카페';
   axios({
     url: 'https://dapi.kakao.com/v2/local/search/keyword.json?',
     params: {
