@@ -2,23 +2,35 @@
 
 }
 .sidebar {
-    width: 300px;
+    top:0;
+    bottom:0;
+    left:0;
     height: 100vh;
     background-color: rgb(255, 255, 255);
     z-index: 2;
     position: fixed;
-    
+    border-right: 3px solid;
+    overflow: hidden;
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+
 }
 
-.sidebar-button {
+.close-sidebar-button {
     position: absolute;
-    left: 310px;
-    top: 5px;
-    width: 25px;
-    height :25px;
-    z-index: 3;
-    border: 1px solid;
-    border-radius: 40px;
-    overflow: hidden;
+    right: 2px;
+    top: 2px;
+   
+    z-index: 2;
     
+    overflow: hidden;
+}
+
+.open-sidebar-button {
+    left : 0px;
+    top : 0px;
+    z-index: 1;
+    width: 25px;
+    height: 25px;
 }

@@ -17,5 +17,5 @@ const map = new kakao.maps.Map(container,options);//지도 생성 및 객체 리
 
 
     return (
-    <div className="map" style="width:500px;height:400px;"></div>
+    <div className="map" style="width:500px;height:400px;" ></div>
 )}
