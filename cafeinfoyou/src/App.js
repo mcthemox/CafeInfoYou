@@ -1,13 +1,16 @@
 import Blog from './apis/Blog';
 import './App.css';
+import React from 'react';
+import KakaoMap from './components/KakakoMap';
+import Map from './components/Map';
+import Sidebar from './components/Sidebar';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <h1>cafe</h1>
       <Blog />
+      <Sidebar />
+      <KakaoMap />
     </div>
   );
 }
-
-export default App;
