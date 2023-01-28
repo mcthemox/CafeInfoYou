@@ -1,8 +1,6 @@
-import Blog from './apis/Blog';
-import './App.css';
 import React from 'react';
+import Blog from './apis/Blog';
 import KakaoMap from './components/KakaoMap';
-import Map from './components/Map';
 import Sidebar from './components/Sidebar';
 
 export default function App() {
