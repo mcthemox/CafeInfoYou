@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import '../styles/map.css';
 
 const {kakao} = window
 
@@ -17,7 +18,7 @@ export default function KakaoMap() {
   
     return (
 
-  <div id="map" style={{width:'100%',height: '100vh'}}></div>
+  <div id="map"></div>
 
   )
 }
