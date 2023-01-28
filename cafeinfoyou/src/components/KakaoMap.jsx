@@ -12,6 +12,9 @@ export default function KakaoMap() {
         const kakaoMap = new kakao.maps.Map(container, options);
         setMap(kakaoMap);
   },[])
+
+  
+  
     return (
 
   <div id="map" style={{width:'100%',height: '100vh'}}></div>
