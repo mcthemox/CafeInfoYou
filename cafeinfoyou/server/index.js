@@ -21,10 +21,8 @@ app.use('/blogSearch', (req, res) => {
     },
   }).then((res) => {
     console.log(res.data);
-    // res.send(true);
   });
 });
-
 
 app.get('/searchPlace', (req, res) => {
   const place = req.query.value;

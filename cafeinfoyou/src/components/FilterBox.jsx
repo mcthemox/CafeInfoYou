@@ -5,26 +5,13 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { cyan, green, indigo, pink, red } from '@mui/material/colors';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function FilterBox() {
-  // const list = useSelector((state) => {
-  //   return state.filter.list;
-  // })
-  const [state, setState] = React.useState({
-    리뷰많은순: false,
-    대형: false,
-    디저트: false,
+  const dispatch = useDispatch();
+  const state = useSelector((state) => {
+    return state.filter;
   });
-
-  const handleChange = (event) => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.checked,
-    });
-  };
-
-  const { 리뷰많은순, 대형, 디저트 } = state;
 
   return (
     <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
@@ -33,8 +20,13 @@ export default function FilterBox() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={리뷰많은순}
-              onChange={handleChange}
+              checked={state.review}
+              onChange={() => {
+                dispatch({
+                  type: 'filter/CHANGE',
+                  payload: { name: 'review', checked: !state.review },
+                });
+              }}
               name="리뷰많은순"
               sx={{
                 color: indigo['A700'],
@@ -57,8 +49,13 @@ export default function FilterBox() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={대형}
-              onChange={handleChange}
+              checked={state.large}
+              onChange={() => {
+                dispatch({
+                  type: 'filter/CHANGE',
+                  payload: { name: 'large', checked: !state.large },
+                });
+              }}
               name="대형"
               sx={{
                 color: green['A200'],
@@ -80,8 +77,13 @@ export default function FilterBox() {
         <FormControlLabel
           control={
             <Checkbox
-              checked={디저트}
-              onChange={handleChange}
+              checked={state.dessert}
+              onChange={() => {
+                dispatch({
+                  type: 'filter/CHANGE',
+                  payload: { name: 'dessert', checked: !state.dessert },
+                });
+              }}
               name="디저트"
               sx={{
                 color: pink['A200'],
