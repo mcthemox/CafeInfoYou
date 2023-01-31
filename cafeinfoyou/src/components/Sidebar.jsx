@@ -9,6 +9,7 @@ export default function Sidebar() {
   const sidebar = useRef();
   const mainhidebutton = useRef();
 
+
   const hidebutton = () => {
     sidebar.current.style.display = 'none';
     mainhidebutton.current.style.display = 'none';
