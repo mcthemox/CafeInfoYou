@@ -5,7 +5,10 @@ import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { cyan, green, indigo, pink, red } from '@mui/material/colors';
+
 import { useSelector, useDispatch } from 'react-redux';
+import { height } from '@mui/system';
+
 
 export default function FilterBox() {
   const dispatch = useDispatch();
@@ -14,12 +17,13 @@ export default function FilterBox() {
   });
 
   return (
-    <FormControl sx={{ m: 3 }} component="fieldset" variant="standard">
+    <FormControl sx={{ m: 2, }} component="fieldset" variant="standard">
       {/* <FormLabel component="legend">Assign responsibility</FormLabel> */}
-      <FormGroup sx={{ flexDirection: 'row' }}>
+      <FormGroup sx={{ flexDirection: 'row' }} >
         <FormControlLabel
           control={
             <Checkbox
+              size="small"
               checked={state.review}
               onChange={() => {
                 dispatch({
@@ -27,28 +31,32 @@ export default function FilterBox() {
                   payload: { name: 'review', checked: !state.review },
                 });
               }}
-              name="리뷰많은순"
+              name="리뷰순"
+
               sx={{
                 color: indigo['A700'],
                 '&.Mui-checked': {
                   color: indigo[600],
                 },
+                width: '30px',
               }}
             />
           }
-          label="리뷰많은순"
+          label="리뷰순"
           sx={{
             border: 3,
             borderColor: indigo['A700'],
             borderRadius: 2,
             bgcolor: indigo[50],
-            pr: 1,
-            fontSize: '10px',
+            pr: 0.5,
+            pt: 0,
+            width: '75px'
           }}
         />
         <FormControlLabel
           control={
             <Checkbox
+              size="small"
               checked={state.large}
               onChange={() => {
                 dispatch({
@@ -62,6 +70,8 @@ export default function FilterBox() {
                 '&.Mui-checked': {
                   color: green[600],
                 },
+                width: '30px',
+
               }}
             />
           }
@@ -77,6 +87,7 @@ export default function FilterBox() {
         <FormControlLabel
           control={
             <Checkbox
+              size="small"
               checked={state.dessert}
               onChange={() => {
                 dispatch({
@@ -90,6 +101,8 @@ export default function FilterBox() {
                 '&.Mui-checked': {
                   color: pink[600],
                 },
+                width: '30px',
+
               }}
             />
           }
