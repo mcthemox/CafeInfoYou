@@ -20,7 +20,7 @@ export default function Data() {
   return (
     <>
       {cafeinfo == undefined ? <span>x</span> :
-        cafeinfo.documents.map((info, i) => {
+        cafeinfo.map((info, i) => {
           return <div className='contents-box'>{info.place_name}</div>
         })
       }
