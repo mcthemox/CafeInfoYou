@@ -25,7 +25,6 @@ app.use('/blogSearch', (req, res) => {
   });
 });
 
-
 app.get('/searchPlace', (req, res) => {
   const place = req.query.value;
   axios({
@@ -40,6 +39,24 @@ app.get('/searchPlace', (req, res) => {
   }).then((response) => {
     console.log(response.data);
     res.send(response.data);
+  });
+});
+
+app.get('/imageSearch', (req, res) => {
+  const name = req.query.value;
+  axios({
+    url: 'https://openapi.naver.com/v1/search/image',
+    params: {
+      query: name,
+      display: 1,
+    },
+    headers: {
+      'X-Naver-Client-Id': client_id,
+      'X-Naver-Client-Secret': client_secret,
+    },
+  }).then((response) => {
+    console.log(res.data);
+    res.send(response);
   });
 });
 

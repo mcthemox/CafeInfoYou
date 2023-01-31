@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import cafe from '../store/modules/cafe';
+import '../styles/sidebar.css';
+import axios from 'axios'
 
 export default function Data() {
 
@@ -16,24 +18,38 @@ export default function Data() {
     },
 
   ]
+  // if (cafeinfo.documents !== undefined) {
+  //   axios({
+  //     method: "get",
+  //     url: 'http://localhost:3001/imageSearch',
+  //     params: {
+  //       value: cafeinfo.documents[0].place_name
+  //     }
+  //   }).then((searchdata) => {
+  //     if (searchdata.status !== 200) return alert('통신에러')
+  //     console.log(searchdata)
+
+  //   })
+  // }
 
   return (
     <>
-      {cafeinfo == undefined ? <span>x</span> :
-        cafeinfo.documents.map((info, i) => {
-          return <div className='contents-box'>{info.place_name}</div>
+      {cafeinfo == undefined ? <span></span> :
+        cafeinfo.documents.map((info, index) => {
+          return (
+            <div className='contents-box' key={index}>
+              <a className='hvr-grow' href={info.place_url}>
+                {info.place_name}
+              </a>
+              <br />
+              <br />
+              <div style={{ fontSize: '14px' }}>
+                {info.phone}
+              </div>
+            </div>
+          )
         })
       }
-
-      {/* {datas.map((el, index) => {
-        return (
-          <div className='contents-box' key={index}>
-            <h2>{el.searchresult}</h2>
-            <h2>{el.name}</h2>
-            <p>{el.address}</p>
-          </div>
-        )
-      })} */}
     </>
   )
 }
