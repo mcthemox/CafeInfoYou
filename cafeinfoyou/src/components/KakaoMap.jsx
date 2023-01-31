@@ -3,24 +3,25 @@ import { useRef } from 'react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import '../styles/map.css';
-import axios from 'axios'
+import axios from 'axios';
 const { kakao } = window;
 
-
 export default function KakaoMap() {
-
   // search.jsx에서 넘어온 내용
+
   const searchresult = useSelector((state) =>state.cafe.text)
   console.log("서치",searchresult)
   const [markers,setMarkers] = useState([])
  
 
+
   const mapContainer = useRef(null);
-  const position = new kakao.maps.LatLng(37.5656, 126.9769)
+  const position = new kakao.maps.LatLng(37.5656, 126.9769);
   const mapOptions = {
     center:position,
     level:4
   };
+
 
 
 
@@ -56,7 +57,6 @@ export default function KakaoMap() {
   
 
 
-
   // const [map, setMap] = useState(null);
 
   // useEffect(() => {
@@ -65,7 +65,6 @@ export default function KakaoMap() {
   //       const kakaoMap = new kakao.maps.Map(container, options);
   //       setMap(kakaoMap);
   // },[])
-
 
   return <div id="map" ref={mapContainer}></div>;
 }
