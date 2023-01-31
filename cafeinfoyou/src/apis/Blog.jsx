@@ -7,5 +7,6 @@ export default function Blog() {
       url: 'http://localhost:3001/blogSearch',
     });
   };
+
   return <button onClick={blogTest}>Blog</button>;
 }
