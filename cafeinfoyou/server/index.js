@@ -13,7 +13,7 @@ app.use('/blogSearch', (req, res) => {
     url: 'https://openapi.naver.com/v1/search/blog',
     params: {
       query: name,
-      display: 20,
+      display: 1,
     },
     headers: {
       'X-Naver-Client-Id': client_id,
@@ -24,6 +24,7 @@ app.use('/blogSearch', (req, res) => {
     // res.send(true);
   });
 });
+
 
 app.get('/searchPlace', (req, res) => {
   const place = req.query.value;
