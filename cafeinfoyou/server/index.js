@@ -5,8 +5,7 @@ const app = express();
 const port = 3001;
 var client_id = 'XcvYvW9CbfHsPBMZsCBd';
 var client_secret = 'sX43nsWJQi';
-app.use(cors()); 
-
+app.use(cors());
 
 app.use('/blogSearch', (req, res) => {
   const name = '홍대 떡볶이';
@@ -29,18 +28,18 @@ app.use('/blogSearch', (req, res) => {
 
 app.get('/searchPlace', (req, res) => {
   const place = req.query.value;
-  const api = axios({
+  axios({
     url: 'https://dapi.kakao.com/v2/local/search/keyword.json?',
     params: {
       query: place,
-      category_group_code:'CE7'
+      category_group_code: 'CE7',
     },
     headers: {
       Authorization: 'KakaoAK 8f5bcb0482043cceab2715b45665b51b',
     },
-  }).then((res) => {
-    console.log(res.data);
-    setData(res.data)
+  }).then((response) => {
+    console.log(response.data);
+    res.send(response.data);
   });
 });
 

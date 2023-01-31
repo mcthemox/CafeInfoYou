@@ -9,20 +9,10 @@ const { kakao } = window;
 
 export default function KakaoMap() {
 
-  // search.jsx에서 넘어온 검색어
-  const saerchinput = useSelector((state) =>state.cafe.text)
-  console.log(saerchinput)
-  const markerdata = []
-  axios({
-    method: "post",
-    url: 'http://localhost:3001/searchPlace',
-    data: {
-      value: saerchinput
-    }
-  }).then((result)=>{
-    console.log(result);
-    
-  })
+  // search.jsx에서 넘어온 내용
+  const searchresult = useSelector((state) =>state.cafe.text)
+  console.log("서치",searchresult)
+  
 
   const mapContainer = useRef(null);
   const position = new kakao.maps.LatLng(37.5656, 126.9769)
@@ -30,44 +20,46 @@ export default function KakaoMap() {
     center:position,
     level:4
   };
-
+  const markerdata = [searchresult]
 
   useEffect(()=> {
     const map = new kakao.maps.Map(mapContainer.current,mapOptions);
 
     
-  const markerdata = [
-    {
-      title: "콜드스퀘어",
-      lat: 37.62197524055062,
-      lng: 127.16017523675508,
-    },
-    {
-      title: "하남돼지집",
-      lat: 37.620842424005616,
-      lng: 127.1583774403176,
-    },
-    {
-      title: "수유리우동",
-      lat: 37.624915253753194,
-      lng: 127.15122688059974,
-    },
-    {
-      title: "맛닭꼬",
-      lat: 37.62456273069659,
-      lng: 127.15211256646381,
-    },
-  ]
+    
+    console.log("마커",markerdata)
+    const markerdata2 = [
+      {
+        place_name: "콜드스퀘어",
+        x: 37.62197524055062,
+        y: 127.16017523675508,
+      },
+      {
+        place_name: "하남돼지집",
+        x: 37.620842424005616,
+        y: 127.1583774403176,
+      },
+      {
+        place_name: "수유리우동",
+        x: 37.624915253753194,
+        y: 127.15122688059974,
+      },
+      {
+        place_name: "맛닭꼬",
+        laxt: 37.62456273069659,
+        y: 127.15211256646381,
+      },
+    ]
   
-  var marker  = markerdata.forEach((el) => {
-    const Content = `<span>${el.title}</span>`
+     markerdata2.forEach((el) => {
+    const Content = el.place_name
 
     // 마커를 생성합니다
     new kakao.maps.Marker({
       //마커가 표시 될 지도
       map: map,
       //마커가 표시 될 위치
-      position: new kakao.maps.LatLng(el.lat, el.lng),
+      position: new kakao.maps.LatLng(el.x, el.y),
       //마커에 hover시 나타날 title
       title: Content
       
@@ -76,7 +68,7 @@ export default function KakaoMap() {
   });
 
   
-  },[])
+  },[markerdata])
 
   
 

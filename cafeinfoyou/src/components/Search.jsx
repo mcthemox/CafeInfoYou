@@ -14,11 +14,13 @@ export default function Search() {
       params: {
         value: inputVal
       }
-    }).then(() => {
-      if (searchdata.status !== 200) return alert('통신에러')
-      const data = searchdata.data
-      console.log("리절:", data);
-      dispatch({ type: 'INP_VAL', text: data })
+
+    }).then((searchdata)=>{
+      if(searchdata.status !== 200) return alert('통신에러')
+      const data = searchdata.data.documents
+      console.log("리절:",data);
+      dispatch({type:'INP_VAL', text:data})
+
     })
 
 
