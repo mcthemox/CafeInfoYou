@@ -35,7 +35,7 @@ export default function Data() {
   return (
     <>
       {cafeinfo == undefined ? <span></span> :
-        cafeinfo.documents.map((info, index) => {
+        cafeinfo.map((info, index) => {
           return (
             <div className='contents-box' key={index}>
               <a className='hvr-grow' href={info.place_url}>
@@ -48,6 +48,7 @@ export default function Data() {
               </div>
             </div>
           )
+
         })
       }
     </>
