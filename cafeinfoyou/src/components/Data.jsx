@@ -1,40 +1,39 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
+import cafe from '../store/modules/cafe';
 
 export default function Data() {
 
-    const datas = [
-        {
-            name: '카페이름1',
-            address: '주소1'
-        },
-        {
-            name: '카페이름2',
-            address: '주소2'
-        },
-        {
-            name: '카페이름3',
-            address: '주소4'
-        },
-        {
-            name: '카페이름4',
-            address: '주소5'
-        },
-        {
-            name: '카페이름5',
-            address: '주소5'
-        },
-    ]
+  // const cafecontents = useRef()
+  const cafeinfo = useSelector((state) => state.cafe.text)
+  console.log('데이터:', cafeinfo)
+
+  const dd = 'as'
+  // const datas = cafeinfo.documents
+  const datas = [
+    {
+      dd
+    },
+
+  ]
 
   return (
-    <div >
-         {datas.map((el,index)=>{
-          return (
-            <div className='contents-box' key={index}>
-              <h2>{el.name}</h2>
-              <p>{el.address}</p>
-            </div>
-          )
-        })}
-    </div>
+    <>
+      {cafeinfo == undefined ? <span>x</span> :
+        cafeinfo.documents.map((info, i) => {
+          return <div className='contents-box'>{info.place_name}</div>
+        })
+      }
+
+      {/* {datas.map((el, index) => {
+        return (
+          <div className='contents-box' key={index}>
+            <h2>{el.searchresult}</h2>
+            <h2>{el.name}</h2>
+            <p>{el.address}</p>
+          </div>
+        )
+      })} */}
+    </>
   )
 }

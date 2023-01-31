@@ -12,14 +12,14 @@ export default function Search() {
       method: 'get',
       url: 'http://localhost:3001/searchPlace',
       params: {
-        value: inputVal,
-      },
+        value: inputVal
+      }
     }).then((searchdata) => {
-      if (searchdata.status !== 200) return alert('통신에러');
-      const data = searchdata.data;
-      console.log('리절:', data);
-      dispatch({ type: 'INP_VAL', text: data });
-    });
+      if (searchdata.status !== 200) return alert('통신에러')
+      const data = searchdata.data
+      // console.log("리절:", data);
+      dispatch({ type: 'INP_VAL', text: data })
+    })
   }
 
   return (
@@ -32,6 +32,7 @@ export default function Search() {
         src="/images/search.png"
       />
       {/* <button onClick={sendTextValueHandler}>검색</button> */}
+
     </div>
   );
 }
