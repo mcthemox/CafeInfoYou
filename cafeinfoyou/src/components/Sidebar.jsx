@@ -13,9 +13,9 @@ export default function Sidebar() {
     const hidebutton = () => {
         sidebar.current.style.display = 'none';
         mainhidebutton.current.style.display = 'none'
-      
+
     }
-    const openbutton = () => { 
+    const openbutton = () => {
         sidebar.current.style.width = '300px';
         sidebar.current.style.display = '';
         mainhidebutton.current.style.display = ''
@@ -23,10 +23,11 @@ export default function Sidebar() {
     return (
         <div className='sidebar-container'>
             <div ref={sidebar} className='sidebar' style={{ width: '300px' }}>
-                <Search/>
+                <Search />
                 <SidebarContents />
             </div>
-                <img src='/images/button1.png' ref={mainhidebutton} className='close-sidebar-button' onClick={hidebutton} alt='button' ></img>
-                <img src='/images/button2.png' className='open-sidebar-button' onClick={openbutton} alt='button' ></img>
+            <img src='/images/button1.png' ref={mainhidebutton} className='close-sidebar-button' onClick={hidebutton} alt='button' ></img>
+            <img src='/images/button2.png' className='open-sidebar-button' onClick={openbutton} alt='button' ></img>
         </div>
-)}
+    )
+}

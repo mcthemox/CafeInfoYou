@@ -10,24 +10,24 @@ const { kakao } = window;
 export default function KakaoMap() {
 
   // search.jsx에서 넘어온 내용
-  const searchresult = useSelector((state) =>state.cafe.text)
-  console.log("서치",searchresult)
-  
+  const searchresult = useSelector((state) => state.cafe.text)
+  // console.log("서치",searchresult)
+
 
   const mapContainer = useRef(null);
   const position = new kakao.maps.LatLng(37.5656, 126.9769)
   const mapOptions = {
-    center:position,
-    level:4
+    center: position,
+    level: 4
   };
   const markerdata = [searchresult]
 
-  useEffect(()=> {
-    const map = new kakao.maps.Map(mapContainer.current,mapOptions);
+  useEffect(() => {
+    const map = new kakao.maps.Map(mapContainer.current, mapOptions);
 
-    
-    
-    console.log("마커",markerdata)
+
+
+    // console.log("마커",markerdata)
     const markerdata2 = [
       {
         place_name: "콜드스퀘어",
@@ -50,27 +50,27 @@ export default function KakaoMap() {
         y: 127.15211256646381,
       },
     ]
-  
-     markerdata2.forEach((el) => {
-    const Content = el.place_name
 
-    // 마커를 생성합니다
-    new kakao.maps.Marker({
-      //마커가 표시 될 지도
-      map: map,
-      //마커가 표시 될 위치
-      position: new kakao.maps.LatLng(el.x, el.y),
-      //마커에 hover시 나타날 title
-      title: Content
-      
+    markerdata2.forEach((el) => {
+      const Content = el.place_name
+
+      // 마커를 생성합니다
+      new kakao.maps.Marker({
+        //마커가 표시 될 지도
+        map: map,
+        //마커가 표시 될 위치
+        position: new kakao.maps.LatLng(el.x, el.y),
+        //마커에 hover시 나타날 title
+        title: Content
+
+      });
+
     });
 
-  });
 
-  
-  },[markerdata])
+  }, [markerdata])
 
-  
+
 
 
 
