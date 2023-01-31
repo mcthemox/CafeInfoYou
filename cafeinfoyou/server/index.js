@@ -8,7 +8,8 @@ var client_secret = 'sX43nsWJQi';
 app.use(cors());
 
 app.use('/blogSearch', (req, res) => {
-  const name = '홍대 떡볶이';
+  const name = req.query.value;
+  console.log('name', name);
   axios({
     url: 'https://openapi.naver.com/v1/search/blog',
     params: {
@@ -19,8 +20,9 @@ app.use('/blogSearch', (req, res) => {
       'X-Naver-Client-Id': client_id,
       'X-Naver-Client-Secret': client_secret,
     },
-  }).then((res) => {
-    console.log(res.data);
+  }).then((response) => {
+    console.log(response.data.total);
+    res.send(response.data);
   });
 });
 
@@ -36,7 +38,7 @@ app.get('/searchPlace', (req, res) => {
       Authorization: 'KakaoAK 8f5bcb0482043cceab2715b45665b51b',
     },
   }).then((response) => {
-    console.log(response.data);
+    // console.log(response.data);
     res.send(response.data);
   });
 });
