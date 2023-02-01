@@ -20,9 +20,6 @@ export default function Search() {
         value: inputVal
       }
     }).then((searchdata) => {
-
-
-
       if (searchdata.status !== 200) return alert('통신에러');
       const data = searchdata.data.documents;
       console.log('리절:', data);
@@ -30,7 +27,6 @@ export default function Search() {
       if (filter.review) reviewChecked();
     })
   };
-
 
   function reviewChecked() {
     console.log('---reviewCheck--');

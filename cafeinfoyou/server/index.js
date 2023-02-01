@@ -56,8 +56,8 @@ app.get('/imageSearch', (req, res) => {
       'X-Naver-Client-Secret': client_secret,
     },
   }).then((response) => {
-    console.log(res.data);
-    res.send(response);
+    console.log(response.data);
+    res.send(response.data);
   });
 });
 

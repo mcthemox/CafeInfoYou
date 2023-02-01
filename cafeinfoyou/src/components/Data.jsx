@@ -6,32 +6,26 @@ import axios from 'axios'
 
 export default function Data() {
 
-  // const cafecontents = useRef()
+
   const cafeinfo = useSelector((state) => state.cafe.text)
   console.log('데이터:', cafeinfo)
 
-  const dd = 'as'
-  // const datas = cafeinfo.documents
-  const datas = [
-    {
-      dd
-    },
 
-  ]
-  // const [dataArr, setDataArr] = useState([])
-  //   // axios({
-  //   //   method: "get",
-  //   //   url: 'http://localhost:3001/imageSearch',
-  //   //   params: {
-  //   //     value: cafeinfo.documents[0].place_name
-  //   //   }
-  //   // }).then((searchdata) => {
-  //   //   if (searchdata.status !== 200) return alert('통신에러')
-  //   //   console.log(searchdata)
-      
-  //   //   setDataArr(search)
 
-  //   // })
+  if (cafeinfo !== undefined) {
+    axios({
+      method: "get",
+      url: 'http://localhost:3001/imageSearch',
+      params: {
+        value: cafeinfo[0].place_name
+      }
+    }).then((searchdata) => {
+      if (searchdata.status !== 200) return alert('통신에러')
+      console.log(searchdata.data.items[0].link);
+    })
+  }
+
+
 
   return (
     <>
@@ -49,7 +43,6 @@ export default function Data() {
               </div>
             </div>
           )
-
         })
       }
     </>
