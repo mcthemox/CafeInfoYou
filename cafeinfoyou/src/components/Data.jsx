@@ -11,6 +11,7 @@ export default function Data() {
   console.log('데이터:', cafeinfo)
 
 
+
   if (cafeinfo !== undefined) {
     axios({
       method: "get",
@@ -23,6 +24,7 @@ export default function Data() {
       console.log(searchdata.data.items[0].link);
     })
   }
+
 
 
   return (
