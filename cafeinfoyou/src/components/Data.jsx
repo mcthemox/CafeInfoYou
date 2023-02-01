@@ -18,19 +18,20 @@ export default function Data() {
     },
 
   ]
-  // if (cafeinfo.documents !== undefined) {
-  //   axios({
-  //     method: "get",
-  //     url: 'http://localhost:3001/imageSearch',
-  //     params: {
-  //       value: cafeinfo.documents[0].place_name
-  //     }
-  //   }).then((searchdata) => {
-  //     if (searchdata.status !== 200) return alert('통신에러')
-  //     console.log(searchdata)
+  // const [dataArr, setDataArr] = useState([])
+  //   // axios({
+  //   //   method: "get",
+  //   //   url: 'http://localhost:3001/imageSearch',
+  //   //   params: {
+  //   //     value: cafeinfo.documents[0].place_name
+  //   //   }
+  //   // }).then((searchdata) => {
+  //   //   if (searchdata.status !== 200) return alert('통신에러')
+  //   //   console.log(searchdata)
+      
+  //   //   setDataArr(search)
 
-  //   })
-  // }
+  //   // })
 
   return (
     <>

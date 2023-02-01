@@ -10,21 +10,16 @@ export default function KakaoMap() {
   // search.jsx에서 넘어온 내용
 
   const searchresult = useSelector((state) =>state.cafe.text)
-  console.log("서치",searchresult)
-  const [markers,setMarkers] = useState([])
+  //console.log("서치",searchresult)
+  const [position,setPosition] = useState(new kakao.maps.LatLng(37.5656, 126.9769))
  
 
 
   const mapContainer = useRef(null);
-  const position = new kakao.maps.LatLng(37.5656, 126.9769);
   const mapOptions = {
     center:position,
     level:4
   };
-
-
-
-
 
 
   useEffect(()=> {
@@ -33,26 +28,23 @@ export default function KakaoMap() {
     
 
     if (searchresult !== undefined){
+      setPosition(new kakao.maps.LatLng(searchresult[1].y, searchresult[1].x))
      searchresult.map((el) => {
-      console.log(el)
       return(
     // 마커를 생성합니다
       new kakao.maps.Marker({
       //마커가 표시 될 지도
       map: map,
       //마커가 표시 될 위치
-      position: new kakao.maps.LatLng(el.x, el.y),
+      position: new kakao.maps.LatLng(el.y, el.x),
       //마커에 hover시 나타날 title
-      title: el.place_name
-        
-      })
-      
+      title: el.place_name,   
+        })    
       )
     })
-  
     }  
-    
   },[searchresult])
+
 
   
 
