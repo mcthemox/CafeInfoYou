@@ -90,6 +90,10 @@
     margin-bottom: 15px;
 }
 
+.contents-box2 {
+    width: 100%;
+}
+
 a {
     text-decoration: none;
     color: black;
