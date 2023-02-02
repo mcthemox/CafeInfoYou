@@ -1,24 +1,24 @@
-import React from 'react'
+import React from 'react';
 import { useSelector } from 'react-redux';
 import cafe from '../store/modules/cafe';
 import '../styles/sidebar.css';
-import axios from 'axios'
+import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Iframe from 'react-iframe'
 // import { isMobile } from 'react-device-detect';
 
 export default function Data() {
-
-  const cafeinfo = useSelector((state) => state.cafe.text)
+  const cafeinfo = useSelector((state) => state.cafe.text);
   const [img, setImg] = useState([]);
 
   useEffect(() => {
     initialize();
   }, cafeinfo)
 
+
   function initialize() {
     if (cafeinfo == undefined) return;
-    let imgArr = []
+    let imgArr = [];
 
     cafeinfo.map((info, i) => {
       setTimeout(function () {
@@ -36,18 +36,21 @@ export default function Data() {
         })
       }, 180 * (i + 1));
     })
-
   }
+
 
   return (
     <>
       {img.length}
-      {cafeinfo == undefined ? <span></span> :
+      {cafeinfo == undefined ? (
+        <span></span>
+      ) : (
         cafeinfo.map((info, index) => {
           let url = info.place_url;
           // if (isMobile) url = info.place_url.slice(0, 26) + '/m' + info.place_url.slice(26);
 
           return (
+
             <div className='contents-box' key={index}>
               <a className='hvr-grow' href={url} target='_blank'>
                 {info.place_name}
@@ -58,12 +61,12 @@ export default function Data() {
               </div>
               <br />
               {img.length > 0 && (
-                <img style={{ borderRadius: '4px', width: '230px', height: '120px' }} src={img[index]}></img>
+                <img style={{ borderRadius: '4px', width: '230px', height: '120px' }} src={img[index]} alt="카페 이미지"></img>
               )}
             </div>
-          )
+          );
         })
-      }
+      )}
     </>
-  )
+  );
 }
