@@ -14,6 +14,7 @@ export default function Data() {
     initialize()
   }, [])
 
+
   function initialize() {
     if (cafeinfo == undefined) return;
     let imgArr = []
@@ -31,6 +32,7 @@ export default function Data() {
         imgArr.push(searchdata.data.items[0].link);
         console.log(searchdata)
       })
+
     })
 
     setImg(imgArr)
@@ -51,6 +53,7 @@ export default function Data() {
   //     console.log(searchdata.data.items[0].link);
   //   })
   // }
+
 
 
 
