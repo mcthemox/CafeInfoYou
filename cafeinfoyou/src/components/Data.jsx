@@ -30,18 +30,18 @@ export default function Data() {
           }
         }).then((searchdata) => {
           if (searchdata.status !== 200) return alert('통신에러')
-          // console.log(searchdata.data.items[0].link);
+          console.log(cafeinfo);
           imgArr.push(searchdata.data.items[0].link);
           setImg([...imgArr])
         })
-      }, 180 * (i + 1));
+      }, 200 * (i + 1));
     })
   }
 
 
   return (
     <>
-      {img.length}
+      {/* {img.length} */}
       {cafeinfo == undefined ? (
         <span></span>
       ) : (
@@ -50,16 +50,18 @@ export default function Data() {
           // if (isMobile) url = info.place_url.slice(0, 26) + '/m' + info.place_url.slice(26);
 
           return (
-
             <div className='contents-box' key={index}>
               <a className='hvr-grow' href={url} target='_blank'>
                 {info.place_name}
               </a>
               <br />
+              <div style={{ fontSize: '13px' }}>
+                {info.road_address_name}
+              </div>
               <div style={{ fontSize: '12px' }}>
                 {info.phone}
               </div>
-              <br />
+
               {img.length > 0 && (
                 <img style={{ borderRadius: '4px', width: '230px', height: '120px' }} src={img[index]} alt="카페 이미지"></img>
               )}
