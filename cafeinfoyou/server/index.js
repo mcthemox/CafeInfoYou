@@ -26,6 +26,7 @@ app.use('/blogSearch', (req, res) => {
 
 app.get('/searchPlace', (req, res) => {
   const place = req.query.value;
+  console.log(place);
   axios({
     url: 'https://dapi.kakao.com/v2/local/search/keyword.json?',
     params: {
