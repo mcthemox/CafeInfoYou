@@ -9,7 +9,6 @@ app.use(cors());
 
 app.use('/blogSearch', (req, res) => {
   const name = req.query.value;
-  console.log('name', name);
   axios({
     url: 'https://openapi.naver.com/v1/search/blog',
     params: {
