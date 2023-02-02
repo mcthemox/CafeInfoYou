@@ -20,7 +20,11 @@ export default function KakaoMap() {
     center:position,
     level:4
   };
-
+  useEffect(()=>{
+    if(searchresult !== undefined){
+      setPosition(new kakao.maps.LatLng(searchresult[0].y, searchresult[0].x))
+      }
+  },[searchresult])
 
   useEffect(()=> {
     const map = new kakao.maps.Map(mapContainer.current,mapOptions);
@@ -28,11 +32,12 @@ export default function KakaoMap() {
     
 
     if (searchresult !== undefined){
-      setPosition(new kakao.maps.LatLng(searchresult[1].y, searchresult[1].x))
+      
+      
      searchresult.map((el) => {
       return(
     // 마커를 생성합니다
-      new kakao.maps.Marker({
+     new kakao.maps.Marker({
       //마커가 표시 될 지도
       map: map,
       //마커가 표시 될 위치
@@ -42,8 +47,9 @@ export default function KakaoMap() {
         })    
       )
     })
+    
     }  
-  },[searchresult])
+  },[mapOptions])
 
 
   

@@ -64,7 +64,9 @@ export default function Data() {
         cafeinfo.map((info, index) => {
           return (
             <div className='contents-box' key={index}>
+
               <a className='hvr-grow' href={info.place_url} target='_blank'>
+
                 {info.place_name}
               </a>
               <br />
