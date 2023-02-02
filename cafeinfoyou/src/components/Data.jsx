@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { useSelector } from 'react-redux';
 import cafe from '../store/modules/cafe';
 import '../styles/sidebar.css';
@@ -55,8 +55,6 @@ export default function Data() {
   // }
 
 
-
-
   return (
     <>
       {img.length}
@@ -78,9 +76,9 @@ export default function Data() {
                 <img style={{ width: '200px' }} src={img[index]}></img>
               )}
             </div>
-          )
+          );
         })
-      }
+      )}
     </>
-  )
+  );
 }

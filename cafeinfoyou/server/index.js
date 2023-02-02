@@ -21,7 +21,6 @@ app.use('/blogSearch', (req, res) => {
       'X-Naver-Client-Secret': client_secret,
     },
   }).then((response) => {
-    console.log(response.data.total);
     res.send(response.data);
   });
 });
