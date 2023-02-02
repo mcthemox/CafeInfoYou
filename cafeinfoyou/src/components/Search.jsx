@@ -11,18 +11,23 @@ export default function Search() {
 
   async function sendTextValueHandler() {
     const inputVal = searchContent.current.value;
+    let filterVal = '';
+    if (filter.large) filterVal = ' 대형 카페';
+    else if (filter.dessert) filterVal = ' 디저트 카페';
+    else filterVal = '';
+
     // 카카오 지도 검색
     const searchdata = await axios({
       method: 'get',
       url: 'http://localhost:3001/searchPlace',
       params: {
-        value: inputVal,
+        value: filter.review ? inputVal : inputVal + filterVal,
       },
     });
 
     if (searchdata.status !== 200) return alert('통신에러');
     const data = searchdata.data.documents;
-
+    console.log(data);
     if (filter.review) {
       // 블로그 리뷰수 검색
       const result = await getReview(data, inputVal);
@@ -34,7 +39,7 @@ export default function Search() {
         var i = data.findIndex((obj) => obj.place_name === el.name);
         newData.push(data[i]);
       });
-      dispatch({ type: 'cafe/REVIEW', text: newData });
+      dispatch({ type: 'cafe/INP_VAL', text: newData });
     } else {
       dispatch({ type: 'cafe/INP_VAL', text: data });
     }
