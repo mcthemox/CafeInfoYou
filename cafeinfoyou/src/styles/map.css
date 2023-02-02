@@ -4,3 +4,8 @@
     z-index: 1;
     position: fixed;
 }
+.wrap {
+    background-color: white;
+    border:4;
+    text-align: center;
+}

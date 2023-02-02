@@ -23,6 +23,7 @@ export default function KakaoMap() {
   useEffect(()=>{
     if(searchresult !== undefined){
       setPosition(new kakao.maps.LatLng(searchresult[0].y, searchresult[0].x))
+      
       }
   },[searchresult])
 
@@ -34,22 +35,57 @@ export default function KakaoMap() {
     if (searchresult !== undefined){
       
       
-     searchresult.map((el) => {
-      return(
+     searchresult.forEach((el) => {
+      
     // 마커를 생성합니다
-     new kakao.maps.Marker({
+    let marker =    new kakao.maps.Marker({
       //마커가 표시 될 지도
       map: map,
       //마커가 표시 될 위치
       position: new kakao.maps.LatLng(el.y, el.x),
-      //마커에 hover시 나타날 title
-      title: el.place_name,   
+      title: el.place_name
+
+
         })    
-      )
-    })
+          let content =
+          '<div class="content">' + 
+          '<div class="wrap">' + 
+
+            `${el.place_name}` + 
+            '</div>' +
+            '</div>';
+            
+
+        let customOverlay = new kakao.maps.InfoWindow({
+          position: new kakao.maps.LatLng(el.y, el.x),
+          content: content
+        })
+
+        // kakao.maps.event.addListener(marker,'mouseover', function(){
+         
+        //     customOverlay.setMap(map)
+        //   })
+        
+       // kakao.maps.event.addListener(marker,'mouseout', function(){
+        //  setTimeout(function(){
+         //   customOverlay.setMap()
+         // })
+       // })
+        kakao.maps.event.addListener(marker, 'click', function(mouseEvent) {        
+          window.open(el.place_url);
+      });
+  
+   
+   
+     })
+    
     
     }  
   },[mapOptions])
+
+ 
+
+
 
 
   
