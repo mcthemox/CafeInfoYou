@@ -2,9 +2,7 @@ import * as React from 'react';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { cyan, green, indigo, pink, red } from '@mui/material/colors';
-
 import { useSelector, useDispatch } from 'react-redux';
-import { FormControl, FormLabel, Radio, RadioGroup } from '@mui/material';
 
 export default function FilterBox() {
   const dispatch = useDispatch();
