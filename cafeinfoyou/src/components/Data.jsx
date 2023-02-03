@@ -36,10 +36,15 @@ export default function Data() {
     })
   }
 
+  const iframe = useRef()
+  const openiframe = () => {
+    iframe.current.style.display = '';
+  }
+
   return (
     <>
-      <div className='kakao-page'>
-        <iframe src="" name="iframe" width="100%" height="100%" frameborder='0'></iframe>
+      <div className='kakao-page' ref={iframe} style={{ display: 'none' }}>
+        <iframe className='iframe' src="" name="iframe" width="100%" height="100%" frameborder='0'></iframe>
       </div>
       {cafeinfo == undefined ? (
         <span></span>
@@ -52,8 +57,7 @@ export default function Data() {
             <div className='contents-box' key={index}>
               <a className='hvr-grow' style={{
                 marginBottom: '5px'
-
-              }} href={url} target='iframe'>
+              }} href={url} target='iframe' onClick={openiframe}>
                 {info.place_name}
               </a>
               <br />
