@@ -36,20 +36,13 @@ export default function Data() {
   const iframe = useRef();
   const openiframe = () => {
     iframe.current.style.display = '';
-  };
+    iframe.current.style.zIndex = '4';
+  }
 
   return (
     <>
-      <div className="kakao-page" ref={iframe} style={{ display: 'none' }}>
-        <iframe
-          className="iframe"
-          src=""
-          name="iframe"
-          title="iframe"
-          width="100%"
-          height="100%"
-          frameborder="0"
-        ></iframe>
+      <div className='kakao-page' ref={iframe} style={{ display: 'none', zIndex: '' }}>
+        <iframe className='iframe' src="" name="iframe" title="iframe" width="100%" height="100%" frameborder='0'></iframe>
       </div>
       {cafeinfo == undefined ? (
         <span></span>
