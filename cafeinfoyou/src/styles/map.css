@@ -5,7 +5,21 @@
     position: fixed;
 }
 .wrap {
-    background-color: white;
-    border:4;
-    text-align: center;
+    min-width: 0px; 
+    min-height: 0px; 
+    max-width: 99999px; 
+    max-height: none; 
+    border: 0px; 
+    display: block; 
+    position: absolute; 
+    user-select: none; 
+    -webkit-user-drag: none; 
+    clip: rect(0px, 29px, 42px, 0px); 
+    top: 0px; 
+    left: 0px; 
+    width: 29px; 
+    height: 42px
+}
+.title style{
+    font-size: 100px;
 }
