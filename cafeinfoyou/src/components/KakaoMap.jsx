@@ -10,7 +10,7 @@ export default function KakaoMap() {
   // search.jsx에서 넘어온 내용
 
   const searchresult = useSelector((state) =>state.cafe.text)
-  //console.log("서치",searchresult)
+  console.log("서치",searchresult)
   const [position,setPosition] = useState(new kakao.maps.LatLng(37.5656, 126.9769))
  
 
@@ -43,34 +43,34 @@ export default function KakaoMap() {
       map: map,
       //마커가 표시 될 위치
       position: new kakao.maps.LatLng(el.y, el.x),
-      title: el.place_name
+      // title: el.place_name
 
 
         })    
           let content =
-          '<div class="content">' + 
-          '<div class="wrap">' + 
-
-            `${el.place_name}` + 
-            '</div>' +
-            '</div>';
+          `<div style="padding: 10px 15px;
+          position: relative; bottom:-15px; border-radius: 28px; background-color: black;
+          box-shadow: rgb(0 0 0 / 4%) 0px 0px 0px 1px, rgb(0 0 0 / 18%) 0px 2px 4px;
+          color: rgb(255, 255, 255); text-align:center;
+          font-size: 14px;
+          font-weight: 880;">  ${el.place_name}</div>`;
             
 
-        let customOverlay = new kakao.maps.InfoWindow({
+        let customOverlay = new kakao.maps.CustomOverlay({
           position: new kakao.maps.LatLng(el.y, el.x),
           content: content
         })
 
-        // kakao.maps.event.addListener(marker,'mouseover', function(){
+        kakao.maps.event.addListener(marker,'mouseover', function(){
          
-        //     customOverlay.setMap(map)
-        //   })
+            customOverlay.setMap(map)
+          })
         
-       // kakao.maps.event.addListener(marker,'mouseout', function(){
-        //  setTimeout(function(){
-         //   customOverlay.setMap()
-         // })
-       // })
+       kakao.maps.event.addListener(marker,'mouseout', function(){
+         setTimeout(function(){
+           customOverlay.setMap()
+         })
+       })
         kakao.maps.event.addListener(marker, 'click', function(mouseEvent) {        
           window.open(el.place_url);
       });
