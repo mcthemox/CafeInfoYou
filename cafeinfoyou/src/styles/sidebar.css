@@ -19,9 +19,10 @@
     position: fixed;
     padding-top: 50px;
     word-break: break-all;
-    box-shadow: 0 0 6px 0 rgb(109, 106, 102);
+    /* box-shadow: 0 0 6px 0 rgb(109, 106, 102); */
     overflow: scroll;
     -ms-overflow-style: none;
+    border-right: 1px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -30,8 +31,8 @@
 }
 
 .close-sidebar-button {
-    left: 310px;
-    top: 13px;
+    left: 340px;
+    top: 7px;
     width: 30px;
     z-index: 3;
     position: fixed;
@@ -49,7 +50,7 @@
 
 .search {
     position: absolute;
-    width: 260px;
+    width: 293px;
     left: 18px;
     top: 20px;
     z-index: 2;
@@ -69,19 +70,19 @@
     position: absolute;
     width: 30px;
     top: 30px;
-    left: 242px;
+    left: 273px;
     z-index: 3;
 }
 
 .contents {
     margin-top: 40px;
-    margin-left: 12px;
+    margin-left: 25px;
     margin-right: 12px;
 }
 
 .contents-box {
     position: relative;
-    width: 230px;
+    width: 240px;
     background-color: rgb(255, 255, 255);
     height: 200px;
     border-radius: 8px;
@@ -99,7 +100,7 @@
 a {
     text-decoration: none;
     color: black;
-    font-size: 22px;
+    font-size: 18px;
 }
 
 .hvr-grow {
@@ -122,3 +123,14 @@ a {
     box-shadow: 0 0 3px 0 rgb(109, 106, 102);
     border-radius: 4px;
 }
+
+.kakao-page{
+    position: fixed;
+    width: 335px;
+    height: 100vh;
+    left: 335px;
+    top: 0;
+    z-index: 3;
+    box-shadow: -4px 0 4px -4px rgb(109, 106, 102);
+}
+

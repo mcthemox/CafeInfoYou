@@ -15,13 +15,13 @@ export default function Sidebar() {
     mainhidebutton.current.style.display = 'none';
   };
   const openbutton = () => {
-    sidebar.current.style.width = '300px';
+    sidebar.current.style.width = '335px';
     sidebar.current.style.display = '';
     mainhidebutton.current.style.display = '';
   };
   return (
     <div className="sidebar-container">
-      <div ref={sidebar} className="sidebar" style={{ width: '300px' }}>
+      <div ref={sidebar} className="sidebar" style={{ width: '335px' }}>
         <Search />
         <FilterBox />
         <SidebarContents />

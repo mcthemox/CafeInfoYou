@@ -1,11 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import cafe from '../store/modules/cafe';
 import '../styles/sidebar.css';
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import Iframe from 'react-iframe'
-// import { isMobile } from 'react-device-detect';
+import { useRef, useEffect, useState } from 'react';
+
 
 export default function Data() {
   const cafeinfo = useSelector((state) => state.cafe.text);
@@ -34,36 +32,39 @@ export default function Data() {
           imgArr.push(searchdata.data.items[0].link);
           setImg([...imgArr])
         })
-      }, 200 * (i + 1));
+      }, 400 * (i + 1));
     })
   }
 
-
   return (
     <>
-      {/* {img.length} */}
+      <div className='kakao-page'>
+        <iframe src="" name="iframe" width="100%" height="100%" frameborder='0'></iframe>
+      </div>
       {cafeinfo == undefined ? (
         <span></span>
       ) : (
         cafeinfo.map((info, index) => {
           let url = info.place_url;
-          // if (isMobile) url = info.place_url.slice(0, 26) + '/m' + info.place_url.slice(26);
+          url = info.place_url.slice(0, 26) + '/m' + info.place_url.slice(26);
 
           return (
             <div className='contents-box' key={index}>
-              <a className='hvr-grow' href={url} target='_blank'>
+              <a className='hvr-grow' style={{
+                marginBottom: '5px'
+
+              }} href={url} target='iframe'>
                 {info.place_name}
               </a>
               <br />
               <div style={{ fontSize: '13px' }}>
                 {info.road_address_name}
               </div>
-              <div style={{ fontSize: '12px' }}>
+              <div style={{ marginBottom: '4px', fontSize: '12px' }}>
                 {info.phone}
               </div>
-
               {img.length > 0 && (
-                <img style={{ borderRadius: '4px', width: '230px', height: '120px' }} src={img[index]} alt="카페 이미지"></img>
+                <img style={{ borderRadius: '4px', width: '243px', height: '120px' }} src={img[index]} alt="이미지 없음"></img>
               )}
             </div>
           );
