@@ -26,7 +26,6 @@ app.use('/blogSearch', (req, res) => {
 
 app.get('/searchPlace', (req, res) => {
   const place = req.query.value;
-  console.log(place);
   axios({
     url: 'https://dapi.kakao.com/v2/local/search/keyword.json?',
     params: {
@@ -37,7 +36,6 @@ app.get('/searchPlace', (req, res) => {
       Authorization: 'KakaoAK 8f5bcb0482043cceab2715b45665b51b',
     },
   }).then((response) => {
-    // console.log(response.data);
     res.send(response.data);
   });
 });
@@ -55,7 +53,6 @@ app.get('/imageSearch', (req, res) => {
       'X-Naver-Client-Secret': client_secret,
     },
   }).then((response) => {
-    console.log(response.data);
     res.send(response.data);
   });
 });

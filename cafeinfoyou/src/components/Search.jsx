@@ -21,13 +21,13 @@ export default function Search() {
       method: 'get',
       url: 'http://localhost:3001/searchPlace',
       params: {
-        value: filter.review ? inputVal : inputVal + filterVal,
+        value: inputVal + filterVal,
       },
     });
 
     if (searchdata.status !== 200) return alert('통신에러');
     const data = searchdata.data.documents;
-    console.log(data);
+
     if (filter.review) {
       // 블로그 리뷰수 검색
       const result = await getReview(data, inputVal);
@@ -61,7 +61,7 @@ export default function Search() {
             new_arr.push({ name: el.place_name, total: res.data.total });
             if (new_arr.length === data.length) resolve(new_arr);
           });
-        }, 100 * (index + 1));
+        }, 200 * (index + 1));
       });
     });
   }
