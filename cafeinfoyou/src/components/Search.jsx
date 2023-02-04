@@ -76,7 +76,6 @@ export default function Search() {
         src="/images/search.png"
         alt="검색"
       />
-      {/* <button onClick={sendTextValueHandler}>검색</button> */}
     </div>
   );
 }
