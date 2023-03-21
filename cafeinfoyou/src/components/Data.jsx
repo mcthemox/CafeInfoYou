@@ -20,7 +20,7 @@ export default function Data() {
       setTimeout(function () {
         axios({
           method: 'get',
-          url: 'http://localhost:3001/imageSearch',
+          url: 'http://3.34.42.154:3001/imageSearch',
           params: {
             value: cafeinfo[i].place_name,
           },
