@@ -19,7 +19,7 @@ export default function Search() {
     // 카카오 지도 검색
     const searchdata = await axios({
       method: 'get',
-      url: 'http://3.34.42.154:3001/searchPlace',
+      url: 'http://localhost:3001/searchPlace',
       params: {
         value: inputVal + filterVal,
       },
@@ -53,7 +53,7 @@ export default function Search() {
         setTimeout(function () {
           axios({
             method: 'get',
-            url: 'http://3.34.42.154:3001/blogSearch',
+            url: 'http://localhost:3001/blogSearch',
             params: {
               value: inputVal + el.place_name,
             },
